@@ -1,5 +1,19 @@
 #include <iostream>
 using namespace std;
+
+//The first version
+template <class T>
+static int binSearch(T* A, T & key, int lo, int hi)
+{
+    while(lo<hi)
+    {
+        int mid = (hi-lo)/2 + lo;
+        (key < A[mid]) ? hi = mid : lo = mid + 1;
+    }
+    return --lo;
+}
+
+//The second version
 template <class T>
 int compare(T num, T key)
 {
@@ -23,17 +37,7 @@ int binSearch(T arr[], int n, T key)
     return -1;
 }
 
-template <class T>
-static int binSearch(T* A, T & key, int lo, int hi)
-{
-    while(lo<hi)
-    {
-        int mid = (hi-lo)/2 + lo;
-        (key < A[mid]) ? hi = mid : lo = mid + 1;
-    }
-    return --lo;
-}
-
+//Test the functions
 int main()
 {
        int n, m;
